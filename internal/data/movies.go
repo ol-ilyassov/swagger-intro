@@ -8,7 +8,7 @@ import (
 )
 
 type Movie struct {
-	ID        int64     `json:"id"`
+	ID        string    `json:"id"`
 	CreatedAt time.Time `json:"-"`
 	Title     string    `json:"title"`
 	Year      int32     `json:"year,omitempty"`
@@ -24,7 +24,7 @@ func (m Movie) MarshalJSON() ([]byte, error) {
 	}
 
 	aux := struct {
-		ID      int64    `json:"id"`
+		ID      string   `json:"id"`
 		Title   string   `json:"title"`
 		Year    int32    `json:"year,omitempty"`
 		Runtime string   `json:"runtime,omitempty"` // This is a string.

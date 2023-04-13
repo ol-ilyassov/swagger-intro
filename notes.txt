@@ -1,0 +1,19 @@
+GIN Swagger:
+
+---
+
+go get -u [github.com/swaggo/swag](https://github.com/swaggo/swag)[@latest](http://github.com/swaggo/swag/cmd/swag@latest)
+
+go install [github.com/swaggo/swag/cmd/swag@latest](http://github.com/swaggo/swag/cmd/swag@latest)
+
+[https://github.com/swaggo/swag](https://github.com/swaggo/swag)
+
+/home/user/go/bin/swag init --output ../../docs
+
+router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+
+[http://localhost:4000/swagger/index.html](http://localhost:4000/swagger/index.html)
+
+swaggerFiles "[github.com/swaggo/files](http://github.com/swaggo/files)"
+"[github.com/swaggo/gin-swagger](http://github.com/swaggo/gin-swagger)"
+_ "swagger-intro/docs"

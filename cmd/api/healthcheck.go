@@ -2,9 +2,16 @@ package main
 
 import (
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
-func (app *application) healthcheckHandler(w http.ResponseWriter, r *http.Request) {
+// HealthcheckHandler godoc
+//	@Summary	Retrieves current status of Backend app
+//	@Produce	json
+//	@Success	200
+//	@Router		/v1/healthcheck [get]
+func (app *application) healthcheckHandler(c *gin.Context) {
 	env := envelope{
 		"status": "available",
 		"system_info": map[string]string{
@@ -12,9 +19,9 @@ func (app *application) healthcheckHandler(w http.ResponseWriter, r *http.Reques
 			"version":     version,
 		},
 	}
-	err := app.writeJSON(w, http.StatusOK, env, nil)
+	err := app.writeJSON(c.Writer, http.StatusOK, env, nil)
 	if err != nil {
 		// Use the new serverErrorResponse() helper.
-		app.serverErrorResponse(w, r, err)
+		app.serverErrorResponse(c.Writer, c.Request, err)
 	}
 }
