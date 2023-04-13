@@ -18,8 +18,11 @@ go install github.com/swaggo/swag/cmd/swag@latest
 router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 - Code dependencies (gin only):
+
 swaggerFiles "[github.com/swaggo/files](http://github.com/swaggo/files)"
+
 "[github.com/swaggo/gin-swagger](http://github.com/swaggo/gin-swagger)"
+
 _ "swagger-intro/docs"
 
 - Get Access:
