@@ -9,25 +9,33 @@ https://github.com/swaggo/swag
 
 - Install tools: 
 
+```
 go get -u github.com/swaggo/swag
 
 go install github.com/swaggo/swag/cmd/swag@latest
+```
 
 - Command to run generation:
 
+```
 /home/user/go/bin/swag init --output ../../docs
+```
 
 - Code required to add into project:
 
+```
 router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+```
 
 - Code dependencies (gin only):
 
+```
 swaggerFiles "github.com/swaggo/files"
 
 "github.com/swaggo/gin-swagger"
 
 _ "swagger-intro/docs"
+```
 
 - Get Access:
 
